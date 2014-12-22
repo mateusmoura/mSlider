@@ -1,0 +1,198 @@
+/* CONTEUDO
+	>> SLIDER
+_____________ */
+
+main .sliderBox{
+	background-color: #fff;
+	height: 374px;
+	position: relative;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	.bt-anterior, .bt-proximo{
+		background: url("../images/ico/slider_botoes_sprites.png") no-repeat;
+		display: block;
+		height: 26px;
+		margin-top: -13px;
+		position: absolute;
+		overflow: hidden;
+		text-indent: -999em;
+		top: 50%;
+		width: 15px;
+	}
+
+	.inativo{
+		.opacity;
+	}
+
+	.bt-anterior{
+		background-position: left bottom;
+		left: -32px;
+	}
+
+	.bt-proximo{
+		background-position: right top;
+		right: -32px;
+	}
+
+	article{
+		display: none;
+		float: left;
+		overflow: hidden;
+		padding: 36px 46px;
+		width: 868px;
+
+		&.ativo{
+			display: block;
+			left: 0 !important;
+			position: relative !important;
+
+			.mover{
+				left: 0;
+			}
+		}
+
+		&.full{
+			padding: 0;
+			width: 100%;
+		}
+
+		figure{
+			position: relative;
+		}
+
+		.mover{
+			float: left;
+			left: 2000px;
+			position: relative;
+		}
+	}
+
+	div.rolagem{
+		overflow: hidden;
+	}
+
+	div.indice{
+		height: 5px;
+		left: 0;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+
+		ul li{
+			background: url("../images/bkg/slider_indice.png") no-repeat 0 0;
+			display: block;
+			float: left;
+			height: 5px;
+			width: 192px;
+
+			&.ativo{
+				background-position: -240px 0;
+			}
+		}
+	}
+}
+
+/* LESS
+	>> Funções
+______________ */
+
+.border_radius(@radiusT: 5px, @radiusR: 5px, @radiusB: 5px, @radiusL: 5px){
+	-webkit-border-radius: @radiusT @radiusR @radiusB @radiusL;
+	-moz-border-radius: @radiusT @radiusR @radiusB @radiusL;
+ 	border-radius: @radiusT @radiusR @radiusB @radiusL;
+}
+.noPadding(@pad: 0px){
+	padding: @pad;
+}
+.noMargin(@mar: 0px){
+	margin: @mar;
+}
+.noBackground(@bac: none){
+	background: @bac;
+}
+.hiddenText(){
+	display:block;
+	overflow:hidden;
+	text-indent:-999em;
+}
+.setFont(@font: TitilliumWeb_Regular){ // Colocar fonte default do site
+	font-family: @font;
+}
+.centerContent(@wid: 940px){ // Centraliza o conteÃºdo com a largura do conteÃºdo passado como parametro
+	margin: 0 auto;
+	position: relative;
+	width: @wid;
+}
+.center(){ // Centraliza conteÃºdo geral {Altere o valor da largura caso o site precise.}
+	clear: both;
+	margin: 0 auto;
+	width: 960px;
+}
+.clearTag(@cle: both){
+	clear: @cle;
+}
+.listNone(@type: none){
+	list-style: @type;
+}
+.opacity(@val: 0.5){
+	@ie: @val * 100;
+	opacity: @val;
+	filter: ~"alpha(opacity=@{ie})";
+}
+.transition(@type: opacity, @time: 0.5s, @tm: 0s, @anim: ease-in-out ){ /*, @type2: display, @time2: 0, @tm2: 0s*/
+	transition: @type @time @anim @tm; /*, @type2 @time2 @tm2*/
+	-moz-transition: @type @time @anim @tm; /* Firefox 4 */
+	-webkit-transition: @type @time @anim @tm; /* Safari and Chrome */
+	-o-transition: @type @time @anim @tm; /* Opera */
+}
+.fullscreen(){
+	&:-webkit-full-screen {
+		.fullValues;
+	}
+	&:-moz-full-screen {
+		.fullValues;
+	}
+	&:-ms-full-screen {
+		.fullValues;
+	}
+	&:-o-full-screen {
+		.fullValues;
+	}
+	&:full-screen {
+		.fullValues;
+	}
+}
+.fullValues(){
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 99999;
+}
+.textShadow(@l: 0px, @t: -2px, @r: 2px, @color: #000){
+	text-shadow:0px 5px 9px #000000;
+}
+.boxShadow(@lateral: 10px, @b: 10px, @c: 5px, @color: #888){
+	box-shadow: @lateral @b @c @color;
+}
+.boldItalic(@bol: 700){ // Colocar texto italico com o bold adequado { Nem sempre Ã© utilizado essa funcionalidade no site. }
+	font-style: italic;
+	font-weight: @bol;
+}
+.pie(){
+	behavior: url(PIE_uncompressed.htc);
+}
+
+/* LESS 
+	>> VariÃ¡veis { Determina as cores do website }
+________________ */
+
+@white_color: #feffff;
+@gray_color: #6c7c8a;
+@yellow_color: #ebb844;
+@red_color: #ee5d41;
+
+/* --------------- */
